@@ -1,0 +1,87 @@
+#/kunden/homepages/27/d309616710/htdocs
+
+#AddHandler x-mapp-php5 .php
+
+# permanently redirect from non-www domain to www domain
+RewriteEngine on
+Options +FollowSymLinks
+
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# require SSL
+RewriteCond %{HTTPS} !=on [NC]
+#RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI}/villazzo_new/ [R,L]
+
+# prevent folder listing
+IndexIgnore *
+
+# disable directory browsing
+Options All -Indexes
+
+# prevent viewing of specific files
+<FilesMatch "(.htaccess)">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+# server custom error pages
+ErrorDocument 401 /401/
+ErrorDocument 403 /403/
+ErrorDocument 404 /404/
+
+# rewrite rules
+RewriteRule ^(401)$ /error.php?error=$1 [NC,QSA,L]
+RewriteRule ^(403)$ /error.php?error=$1 [NC,QSA,L]
+RewriteRule ^(404)$ /error.php?error=$1 [NC,QSA,L]
+
+RewriteRule ^(rental-villas)/([0-9a-z\_-]+)$ /destination.php?dest=$2 [NC,QSA,L]
+RewriteRule ^([0-9a-z\_-]+)-(rental-villas)/(villa-hotel)-([0-9a-z\_-]+)$ /property.php?prop=$4 [NC,QSA,L]
+RewriteRule ^([0-9a-z\_-]+)-(rental-villas)/(v-villa)-([0-9a-z\_-]+)$ /property.php?prop=$4 [NC,QSA,L]
+RewriteRule ^([0-9a-z\_-]+)-(rental-villas)/([0-9a-z\_-]+)-([0-9a-z\_-]+)$ /property.php?prop=$4 [NC,QSA,L]
+RewriteRule ^([0-9a-z\_-]+)-(rental-villas)/(villa)-([0-9a-z\_-]+)$ /property.php?prop=$4 [NC,QSA,L]
+
+RewriteRule ^/villazzo_new/(luxury-rental-property-vacation-destinations)$ /destinations.php [NC,QSA,L]
+
+RewriteRule ^(search)/$ /villazzo_new/search.php [NC,QSA,L]
+#RewriteRule ^(search)/([0-9a-z\_-]+)/([0-9a-z\_-]+)/$ /villazzo_new/search.php?dest=$2&keyword=$3 [NC,QSA,L]
+RewriteRule ^(search)/([0-9a-z\_-]+)/$ /villazzo_new/search.php?keyword=$2 [NC,QSA,L]
+
+RewriteRule ^(login)$ /login.php [NC,QSA,L]
+
+RewriteRule ^(reservations)/(destination)/([0-9a-z\_-]+)/$ /villazzo_new/reservations/index.php?dest=$3 [NC,QSA,L]
+RewriteRule ^(reservations)/(login)/$ /villazzo_new/reservations/login.php?page=$2 [NC,QSA,L]
+RewriteRule ^(reservations)/(services)/$ /villazzo_new/reservations/services.php?page=$2 [NC,QSA,L]
+RewriteRule ^(reservations)/(calendar)/$ /villazzo_new/reservations/calendar.php?page=$2 [NC,QSA,L]
+RewriteRule ^(reservations)/(checkout)/$ /villazzo_new/reservations/checkout.php?page=$2 [NC,QSA,L]
+RewriteRule ^(reservations)/(confirmation)/$ /villazzo_new/reservations/confirmation.php?page=$2 [NC,QSA,L]
+RewriteRule ^(reservations)/(confirmation)/(courtesy-hold)/$ /villazzo_new/reservations/confirmation.php?page=$3 [NC,QSA,L]
+RewriteRule ^(reservations)/(overview)/$ /villazzo_new/reservations/overview.php?page=$2 [NC,QSA,L]
+RewriteRule ^(reservations)/(overview)/(feedback)/([0-9a-z\_-]+)/$ /villazzo_new/reservations/overview-feedback.php?page=$2&id=$4 [NC,QSA,L]
+RewriteRule ^(reservations)/(property-calendar)/$ /villazzo_new/reservations/property-calendar.php?page=$2 [NC,QSA,L]
+RewriteRule ^(reservations)/(user)/$ /villazzo_new/reservations/user.php?page=$2 [NC,QSA,L]
+RewriteRule ^(reservations)/(user-add)/$ /villazzo_new/reservations/user-add.php?page=$2 [NC,QSA,L]
+RewriteRule ^(reservations)/(user-edit)/$ /villazzo_new/reservations/user-edit.php?page=$2 [NC,QSA,L]
+RewriteRule ^(reservations)/(user-profile)/$ /villazzo_new/reservations/user-profile.php?page=$2 [NC,QSA,L]
+RewriteRule ^(reservations)/(feedback)/([0-9a-z\_-]+)/$ /villazzo_new/reservations/feedback.php?reservation=$3 [NC,QSA,L]
+
+# rewrite rule for includes
+RewriteRule ^([0-9a-z\+_-]+)/villazzo_new/css/(.*)$ /villazzo_new/css/$2 [NC,QSA,L]
+RewriteRule ^([0-9a-z\+_-]+)/villazzo_new/media/(.*)$ /villazzo_new/media/$2 [NC,QSA,L]
+RewriteRule ^([0-9a-z\+_-]+)/villazzo_new/img/(.*)$ /villazzo_new/img/$2 [NC,QSA,L]
+RewriteRule ^([0-9a-z\+_-]+)/villazzo_new/js/(.*)$ /villazzo_new/js/$2 [NC,QSA,L]
+
+RewriteRule ^([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/villazzo_new/css/(.*)$ /villazzo_new/css/$3 [NC,QSA,L]
+RewriteRule ^([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/villazzo_new/media/(.*)$ /villazzo_new/media/$3 [NC,QSA,L]
+RewriteRule ^([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/villazzo_new/img/(.*)$ /villazzo_new/img/$3 [NC,QSA,L]
+RewriteRule ^([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/villazzo_new/js/(.*)$ /villazzo_new/js/$3 [NC,QSA,L]
+
+RewriteRule ^([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/villazzo_new/css/(.*)$ /villazzo_new/css/$4 [NC,QSA,L]
+RewriteRule ^([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/villazzo_new/media/(.*)$ /villazzo_new/media/$4 [NC,QSA,L]
+RewriteRule ^([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/villazzo_new/img/(.*)$ /villazzo_new/img/$4 [NC,QSA,L]
+RewriteRule ^([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/villazzo_new/js/(.*)$ /villazzo_new/js/$4 [NC,QSA,L]
+
+RewriteRule ^([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/villazzo_new/css/(.*)$ /villazzo_new/css/$5 [NC,QSA,L]
+RewriteRule ^([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/villazzo_new/media/(.*)$ /villazzo_new/media/$5 [NC,QSA,L]
+RewriteRule ^([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/villazzo_new/img/(.*)$ /villazzo_new/img/$5 [NC,QSA,L]
+RewriteRule ^([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/([0-9a-z\+_-]+)/villazzo_new/js/(.*)$ /villazzo_new/js/$5 [NC,QSA,L]

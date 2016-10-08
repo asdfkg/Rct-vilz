@@ -1,0 +1,146 @@
+#destinations-map-container{
+	width: 100%;
+	position: relative;
+}
+#destinations-map{
+	width: 100%;
+	height: 494px;
+}
+.map-info-box-content{
+	width: 260px;
+	height: 223px;
+	-webkit-transform: 	scale3d(0.5,0.5,0.5);
+	-moz-transform: 	scale3d(0.5,0.5,0.5);
+	-o-transform: 		scale3d(0.5,0.5,0.5);
+	transform: 			scale3d(00.5,0.5,0.5);
+	-webkit-transform-origin: 	50% 100%; 
+	-moz-transform-origin: 		50% 100%; 
+	-o-transform-origin: 		50% 100%; 
+	transform-origin: 			50% 100%; 
+	visibility: hidden;
+}
+.map-info-box-content.active{
+	visibility: visible;
+	-webkit-transform: 	scale3d(1,1,1);
+	-moz-transform: 	scale3d(1,1,1);
+	-o-transform: 		scale3d(1,1,1);
+	transform: 			scale3d(1,1,1);
+}
+.map-info-box-content .thumb{
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	width: 220px;
+	height:  183px;
+	background-color: #e5c877;
+	box-sizing: border-box;
+}
+.map-info-box-content .info-bar{
+	/*margin-left: 20px;
+	margin-right: 20px;*/
+	width: 220px;
+	height:  20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	background-color: #e5c877;
+	padding: 3px 12px;
+	color: #FFF;
+	box-sizing: border-box;
+}
+.map-info-box-content .info-bar #property-name{
+	float: left;
+}
+.map-info-box-content .info-bar .arrow{
+	float: right;
+}
+.map-info-box-content .triangle {
+	margin-top: -1px;
+	margin-left: 126px;
+	width: 0; 
+	height: 0; 
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 8px solid #e5c877;
+}
+.animate{
+	-webkit-transition: all 0.5s cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	-moz-transition: 	all 0.5s cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	-o-transition: 		all 0.5s cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	transition: 		all 0.5s cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo*/
+	
+	-webkit-transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	-moz-transition-timing-function: 	cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	-o-transition-timing-function: 		cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+	transition-timing-function: 		cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+}
+.shadowed {
+  -webkit-box-shadow: 0 27px 1px -6px #A1A1A1;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -webkit-box-shadow: 0 27px 1px -6px rgba(0,0,0,0.3);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    0 27px 1px -6px #A1A1A1;  /* Firefox 3.5 - 3.6 */
+  -moz-box-shadow:    0 27px 1px -6px rgba(0,0,0,0.3);  /* Firefox 3.5 - 3.6 */
+  box-shadow:         0 27px 1px -6px #A1A1A1;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  box-shadow:         0 27px 1px -6px rgba(0,0,0,0.3);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.btn-refresh{
+	position: absolute;
+	display: block;
+	width: 37px;
+	height: 37px;
+	top: 8px;
+	left: 8px;
+	opacity: 0;
+}
+.btn-refresh img{
+	width: 100%;
+	height: 100%;
+}
+.btn-dest-properties{
+	position: absolute;
+	padding: 10px 10px 7px 10px;
+	top: 7px;
+	left: 68px;
+	background-color: #FFF;
+	background-color: rgba(255,255,255, 0.7);
+	-moz-border-radius: 6px;
+	border-radius: 4px;
+	color: #453416 !important;
+	font-size: 12px;
+	font-weight: bold;
+	-webkit-box-shadow: 0 2px 3px #1a1a1a;
+	-moz-box-shadow: 0 2px 3px #1a1a1a;
+	box-shadow: 0 2px 3px #1a1a1a;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=#1a1a1a, offX=2, offY=2, positive=true);
+	/*visibility: hidden;*/
+	opacity: 0;
+}
+.btn-dest-properties:hover{
+	text-decoration: none;
+}
+.zoom-controls{
+	position: absolute;
+	width: 52px;
+	height: 104px;
+	top: 74px;
+	left: 839px;
+}
+.zoom-controls img{
+	position: absolute;
+	width: 52px;
+	height: 104px;
+	z-index: 1;
+}
+.zoom-controls .btn-container{
+	position: absolute;
+	z-index: 2;
+}
+.zoom-controls .btn-zoom-in{
+	display: block;
+	width: 52px;
+	height: 52px;
+}
+.zoom-controls .btn-zoom-out{
+	display: block;
+	width: 52px;
+	height: 52px;
+}

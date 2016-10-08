@@ -1,0 +1,19 @@
+#AddHandler x-mapp-php5 .php
+
+RewriteEngine on
+RewriteOptions Inherit
+
+RewriteBase /villazzo_new/reservations/
+
+RewriteRule ^(services)$ /villazzo_new/reservations/services.php [NC,QSA,L]
+RewriteRule ^(checkout)$ /villazzo_new/reservations/checkout.php [NC,QSA,L]
+RewriteRule ^(confirmation)$ /villazzo_new/reservations/confirmation.php [NC,QSA,L]
+
+RewriteRule ^(overview)$ /villazzo_new/reservations/manage-overview.php [NC,QSA,L]
+RewriteRule ^(overview)/(feedback)/([0-9a-z\_-]+)$ /villazzo_new/reservations/manage-feedback.php?id=$3 [NC,QSA,L]
+RewriteRule ^(feedback)/([0-9a-z\_-]+)/$ /villazzo_new/reservations/customer-feedback.php?reservation=$2 [NC,QSA,L]
+RewriteRule ^(user)$ /villazzo_new/reservations/manage-user.php [NC,QSA,L]
+RewriteRule ^(user)/add$ /villazzo_new/reservations/manage-user-add.php [NC,QSA,L]
+RewriteRule ^(user)/([0-9a-z\_-]+)$ /villazzo_new/reservations/manage-user-edit.php?id=$2 [NC,QSA,L]
+RewriteRule ^(profile)$ /villazzo_new/reservations/manage-user-profile.php [NC,QSA,L]
+RewriteRule ^(calendar)$ /villazzo_new/reservations/manage-calendar.php [NC,QSA,L]

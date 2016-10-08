@@ -1,0 +1,108 @@
+.slider-holder {
+	height: 13px;
+	border-top: solid 4px #dac172;
+	border-bottom: solid 4px #dac172;
+	padding: 0 7px 0 7px;
+}
+.range-label-holder {
+}
+.range-label {
+	width: 7%;
+	text-align: center;
+	color: #dac172;
+	float:left;
+	margin: 30px 16% 0 0;
+	font-size: 0.8rem;
+}
+.ui-slider {
+	position: relative;
+	text-align: left;
+	border: 0;
+	background-color: transparent;
+	border-radius: 4px;
+}
+
+.ui-slider .ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+	border:0;
+}
+.ui-slider .ui-corner-all{
+	border-radius: 0;
+}
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 35px;
+	height: 35px;
+	cursor: default;
+	outline: none;
+	background: transparent;
+}
+.slider-holder #bedroomsSlider .ui-slider-handle {
+	background: url(/img/reservations/filters-bed.png) no-repeat 1px 0;
+	background-size: contain;
+}
+.slider-holder #budgetSlider .ui-slider-handle {
+	background: url(/img/reservations/filters-budget.png) no-repeat 1px 0;
+	background-size: contain;
+}
+.ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 0;
+	background-position: 0 0;
+}
+
+/* For IE8 - See #6727 */
+.ui-slider.ui-state-disabled .ui-slider-handle,
+.ui-slider.ui-state-disabled .ui-slider-range {
+	filter: inherit;
+}
+
+.ui-slider-horizontal {
+	height:5px;
+	background: transparent url(/img/reservations/pixel_final.png) repeat-x;
+}
+.ui-slider-horizontal .ui-slider-handle {
+	top: -15px;
+	margin-left: -20px;
+}
+.ui-slider-horizontal .ui-slider-range {
+	top: 0;
+	height: 100%;
+	background-color: #FFF;
+}
+.ui-slider-horizontal .ui-slider-range-min {
+	left: 0;
+		background-color: #FFF;
+
+}
+.ui-slider-horizontal .ui-slider-range-max {
+	right: 0;
+}
+
+.ui-slider-vertical {
+	width: .8em;
+	height: 100px;
+}
+.ui-slider-vertical .ui-slider-handle {
+	left: -.3em;
+	margin-left: 0;
+	margin-bottom: -.6em;
+}
+.ui-slider-vertical .ui-slider-range {
+	left: 0;
+	width: 100%;
+}
+.ui-slider-vertical .ui-slider-range-min {
+	bottom: 0;
+}
+.ui-slider-vertical .ui-slider-range-max {
+	top: 0;
+}
